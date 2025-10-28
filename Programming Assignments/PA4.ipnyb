@@ -1,0 +1,341 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "0788cef6-6c5a-4942-8730-bc686d92c7bd",
+   "metadata": {},
+   "source": [
+    "# Programming assignment 4\n",
+    "## Benjamin Valenzuela \n",
+    "## Fall 2025"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "475bdba6-9db2-4d81-930d-3d7b5ff62e92",
+   "metadata": {},
+   "source": [
+    "### Task 1 : Input Positive Integer and Factors"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "0e3ae78c-e80a-4d4c-bf33-5b342df1c39d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Please input a positive integer:   7\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1 is a factor of 7\n",
+      "7 is a factor of 7\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "num = int(input(\"Please input a positive integer:  \"))\n",
+    "if num <= 0:\n",
+    "    print(\" Not a positive integer\")\n",
+    "else:\n",
+    "    for i in range(1, num + 1):\n",
+    "        if num % i == 0:\n",
+    "            print(str(i)+\" is a factor of \"+str(num))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f3c977c1-b9ab-47f0-8265-ae940edbd845",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "num = int(input(\"Please input a positive integer: \"))\n",
+    "if num <= 1:\n",
+    "    print(\"Your number is not prime.\")\n",
+    "else:\n",
+    "    prime = True\n",
+    "    for i in range(2, int(num ** 0.5)+1):\n",
+    "        if num % i == 0:\n",
+    "            prime = False\n",
+    "            break\n",
+    "\n",
+    "    if prime:\n",
+    "        print(\"Your number is prime\")\n",
+    "    else:\n",
+    "        print(\"Your number is not prime.\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "612e10cb-bcc7-492c-939e-58f21358fdd1",
+   "metadata": {},
+   "source": [
+    "### Task 2 : Language Translator"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "c9eeb846-e478-4037-8286-0587e99e305d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a word to translate from English to Spanish (hit enter to stop):  car\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The Spanish word for car is not in this dictionary.\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a word to translate from English to Spanish (hit enter to stop):  \n"
+     ]
+    }
+   ],
+   "source": [
+    "translator ={ \"hello\": \"hola\",\"goodbye\":\"adios\",\n",
+    "    \"please\":\"por favor\",\"thank\":\"gracias\", \n",
+    "    \"dog\":\"perro\",\"cat\":\"gato\",\"food\":\"comida\",\n",
+    "    \"water\": \"agua\", \"book\": \"libro\",\n",
+    "    \"friend\": \"amigo\"}\n",
+    "\n",
+    "while True:\n",
+    "    word = input(\"Enter a word to translate from English to Spanish (hit enter to stop): \").lower()\n",
+    "    if word == \"\" :\n",
+    "        break\n",
+    "    elif word in translator:\n",
+    "        print(\"The Spanish word for \"+word+\" is \"+translator[word]+\".\")\n",
+    "    else:\n",
+    "        print(\"The Spanish word for \"+word+\" is not in this dictionary.\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "beda7274-2176-4a6d-8852-60c4b60b91a0",
+   "metadata": {},
+   "source": [
+    "### Task 3 : Temperature Summaries"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "d2e22356-00ef-4279-b3b4-66d41b3ac57b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a month: I will give you the average high and low temperatures in Louisville:  january\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The average high temperature in Louisville for January is 44 and the average low is 28.\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter a month: I will give you the average high and low temperatures in Louisville:  quit\n"
+     ]
+    }
+   ],
+   "source": [
+    "#https://www.usclimatedata.com/climate/louisville/kentucky/united-states/usky1846\n",
+    "temps = {\n",
+    "    \"january\": [44, 28],\n",
+    "    \"february\": [48, 31],\n",
+    "    \"march\": [58, 39],\n",
+    "    \"april\": [70, 49],\n",
+    "    \"may\": [78, 59],\n",
+    "    \"june\": [86, 67],\n",
+    "    \"july\": [89, 71],\n",
+    "    \"august\": [88, 69],\n",
+    "    \"september\": [82, 62],\n",
+    "    \"october\": [71, 50],\n",
+    "    \"november\": [58, 39],\n",
+    "    \"december\": [47, 32]\n",
+    "}\n",
+    "\n",
+    "while True:\n",
+    "    month = input(\"Enter a month: I will give you the average high and low temperatures in Louisville: \").lower()\n",
+    "    if month == \"quit\":\n",
+    "        break\n",
+    "    elif month in temps:\n",
+    "        print(\"The average high temperature in Louisville for \"+month.capitalize()+\" is \"+ str(temps[month][0])+ \" and the average low is \" +str(temps[month][1])+\".\")\n",
+    "    else:\n",
+    "        print(\"Not a valid month.\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2422d475-1f78-4f28-aae9-0536ad36dd00",
+   "metadata": {},
+   "source": [
+    "### Task 4 : Inventory Dictionary and Prices"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "2bc3d0cb-b4c3-4e2b-b15f-c7e5f5c34b38",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Menu:\n",
+      "1. Look up item by name\n",
+      "2. Show all items below a certain price\n",
+      "3. Total quantity of all items\n",
+      "4. Total price of all items\n",
+      "5. Quit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your menu choice (1-5):  4\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Total value of all items:1170.9\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your menu choice (1-5):  4\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Total value of all items:1170.9\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your menu choice (1-5):  5\n"
+     ]
+    }
+   ],
+   "source": [
+    "inventory = {\n",
+    "    \"hammer\": [15, 12.49],\n",
+    "    \"wrench\": [20, 7.99],\n",
+    "    \"screwdriver\": [40, 3.99],\n",
+    "    \"nailgun\": [10, 36.59],\n",
+    "    \"padlock\": [25, 5.99],\n",
+    "    \"roll_of_duct_tape\": [30, 4.95]\n",
+    "}\n",
+    "\n",
+    "print(\"Menu:\")\n",
+    "print(\"1. Look up item by name\")\n",
+    "print(\"2. Show all items below a certain price\")\n",
+    "print(\"3. Total quantity of all items\")\n",
+    "print(\"4. Total price of all items\")\n",
+    "print(\"5. Quit\")\n",
+    "\n",
+    "while True:\n",
+    "    choice = input(\"\\nEnter your menu choice (1-5): \")\n",
+    "\n",
+    "    if choice == \"1\":\n",
+    "        item = input(\"Enter item name: \").lower()\n",
+    "        if item in inventory:\n",
+    "            qty = inventory[item][0]\n",
+    "            pr = inventory[item][1]\n",
+    "            print(\"There are\"+ str(qty)+\" item(s) available at $\"+str(pr)+ \" each.\")\n",
+    "        else:\n",
+    "            print(\"Item not available.\")\n",
+    "    \n",
+    "    elif choice == \"2\":\n",
+    "        budget = float(input(\"Enter your maximum budget: \"))\n",
+    "        print(\"Items under $\"+str(budget)+\": \")\n",
+    "        for item, value in inventory.items():\n",
+    "            if value[1] < budget:\n",
+    "                print(item+\": $\"+str(value[1]))\n",
+    "\n",
+    "    elif choice == \"3\":\n",
+    "        totalq = 0\n",
+    "        for value in inventory.values():\n",
+    "            totalq += value[0]\n",
+    "        print(\"Total quantity of all items:\" + str(totalq))\n",
+    "    elif choice == \"4\":\n",
+    "        totalv = 0\n",
+    "        for value in inventory.values():\n",
+    "            totalv += value[0] * value[1]\n",
+    "        print(\"Total value of all items: $\" + str(totalv))  \n",
+    "    \n",
+    "    elif choice == \"5\":\n",
+    "        break\n",
+    "    else:\n",
+    "        print(\"Invalid choice try again.\")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "26a7b525-47ba-46e4-a9fd-343dc7365fbd",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
